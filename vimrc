@@ -22,6 +22,7 @@ Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'msanders/snipmate.vim'
+Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -62,7 +63,7 @@ set number      " Show line numbers
 set ignorecase  " Do case insensitive matching
 set smartcase   " Do smart case matching
 set incsearch   " Incremental search
-"set autowrite  " Automatically save before commands like :next and :make
+set autowrite  " Automatically save before commands like :next and :make
 set hidden     " Hide buffers when they are abandoned
 "set mouse=a    " Enable mouse usage (all modes)
 set tabstop=4   " 1 tab = 4 spaces
@@ -70,7 +71,7 @@ set shiftwidth=4 " Same here
 set expandtab   " Automagically expand tabs to space
 set smartindent " Enable smart indentation
 set autoindent  " Enable automatic indentation
-set wildmenu    " Better command-line completion TODO: Check if really better
+set wildmenu    " Better command-line completion
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
 set ruler
@@ -95,20 +96,21 @@ match OverLength /\%81v.\+/
 
 
 " vim-airline
-set laststatus=2                            " To understand this, :h laststatus
+set laststatus=2                             " To understand this, :h laststatus
 let g:airline#extensions#tabline#enabled = 1 " Enable the upper tabline
-let g:airline_powerline_fonts = 1 "Uncomment if you don't have a powerline font
+let g:airline_powerline_fonts = 1            " Uncomment if you don't have a powerline font
 
 " integrate bufferline to airline
 let g:bufferline_echo = 0
 autocmd VimEnter * let &statusline='%{bufferline#refresh_status()}' .bufferline#get_status_string()
 
 " Configure the used VCS
-let g:signify_vcs_list = [ 'git', 'hg' ]
+let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
 
 " Theme
 "colorscheme solarized
-colorscheme slate
+colorscheme desert           " works great with dark pastel term colors
+let g:airline_theme='base16' " works great with desert with pastel term colors
 
 " Syntastic config
 let g:syntastic_python_checkers=['flake8', 'pylama']
@@ -137,10 +139,10 @@ nnoremap bn :bnext<CR>
 nnoremap bp :bprevious<CR>
 
 let g:tagbar_type_markdown = {
-            \ 'ctagstype' : 'markdown',
-            \ 'kinds' : [
-            \ 'h:Heading_L1',
-            \ 'i:Heading_L2',
-            \ 'k:Heading_L3'
-            \ ]
-            \ }
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+    \     'h:Heading_L1',
+    \     'i:Heading_L2',
+    \     'k:Heading_L3'
+    \ ]
+\ }
