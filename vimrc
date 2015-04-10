@@ -10,19 +10,23 @@ call vundle#begin()
 " " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" And now, the plugins.
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/syntastic'
 Plugin 'myusuf3/numbers.vim'
-Plugin 'tpope/vim-markdown'
+Plugin 'gabrielelana/vim-markdown'
 Plugin 'mhinz/vim-signify'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'msanders/snipmate.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -56,15 +60,14 @@ endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-set showcmd    " Show (partial) command in status line.
-
+set showcmd     " Show (partial) command in status line.
 set showmatch   " Show matching brackets.
 set number      " Show line numbers
 set ignorecase  " Do case insensitive matching
 set smartcase   " Do smart case matching
 set incsearch   " Incremental search
-set autowrite  " Automatically save before commands like :next and :make
-set hidden     " Hide buffers when they are abandoned
+set autowrite   " Automatically save before commands like :next and :make
+set hidden      " Hide buffers when they are abandoned
 "set mouse=a    " Enable mouse usage (all modes)
 set tabstop=4   " 1 tab = 4 spaces
 set shiftwidth=4 " Same here
@@ -79,21 +82,9 @@ set ruler
 " press <Enter> to continue"
 set cmdheight=2
 
-" Automatically open, but do not go to (if there are errors) the quickfix /
-" location list window, or close it when is has become empty.
-"
-" Note: Must allow nesting of autocmds to enable any customizations for quickfix
-" buffers.
-" Note: Normally, :cwindow jumps to the quickfix window if the command opens it
-" (but not if it's already open). However, as part of the autocmd, this doesn't
-" seem to happen.
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
-
 " Change background to red when writing a line with length > 80 chars
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
-
 
 " vim-airline
 set laststatus=2                             " To understand this, :h laststatus
@@ -101,8 +92,8 @@ let g:airline#extensions#tabline#enabled = 1 " Enable the upper tabline
 let g:airline_powerline_fonts = 1            " Uncomment if you don't have a powerline font
 
 " integrate bufferline to airline
-let g:bufferline_echo = 0
-autocmd VimEnter * let &statusline='%{bufferline#refresh_status()}' .bufferline#get_status_string()
+"let g:bufferline_echo = 0
+"autocmd VimEnter * let &statusline='%{bufferline#refresh_status()}' .bufferline#get_status_string()
 
 " Configure the used VCS
 let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
@@ -122,6 +113,7 @@ if has("persistent_undo")
 endif
 
 " Keys
+let mapleader=","
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
 " nerdtree
