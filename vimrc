@@ -115,7 +115,7 @@ endif
 " Keys
 let mapleader=","
 " Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>
+set pastetoggle=<F10>
 " nerdtree
 nnoremap <F2> :NERDTreeToggle<CR>
 " numbers

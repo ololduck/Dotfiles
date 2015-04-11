@@ -1,14 +1,18 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-if [ -d $ZSH ]; then
-    # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-    # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-    # Example format: plugins=(rails git textmate ruby lighthouse)
-    # Add wisely, as too many plugins slow down shell startup.
-    plugins=(autojump colorize cp gpg-agent pass tmux vundle git gitignore pip python virtualenv virtualenvwrapper docker debian)
-
-    source $ZSH/oh-my-zsh.sh
+if [ ! -d $ZSH ]; then
+    echo "\033[0;34mCloning Oh My Zsh...\033[0m"
+    hash git >/dev/null 2>&1 && env git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $ZSH || {
+        echo "git not installed"
+    }
 fi
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(autojump colorize cp gpg-agent pass tmux vundle git gitignore pip python virtualenv virtualenvwrapper docker debian)
+
+source $ZSH/oh-my-zsh.sh
 # set $TERM to have many beautiful colors
 export TERM=xterm-256color
 
