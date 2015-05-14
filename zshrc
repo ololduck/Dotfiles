@@ -12,6 +12,8 @@ fi
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(autojump colorize cp gpg-agent pass tmux vundle git gitignore pip python virtualenv virtualenvwrapper docker debian)
 
+alias open='xdg-open'
+
 source $ZSH/oh-my-zsh.sh
 # set $TERM to have many beautiful colors
 export TERM=xterm-256color
