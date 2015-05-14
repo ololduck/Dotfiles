@@ -1,5 +1,9 @@
 set nocompatible
 
+if &shell =~# 'fish$'
+    set shell=bash
+endif
+
 filetype off " required for vundle
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -26,6 +30,7 @@ Plugin 'ervandew/supertab'
 Plugin 'msanders/snipmate.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'godlygeek/tabular'
+Plugin 'dag/vim-fish'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 
 " All of your Plugins must be added before the following line

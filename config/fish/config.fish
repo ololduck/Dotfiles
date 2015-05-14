@@ -4,3 +4,6 @@ end
 if [ -d $HOME/bin ]
     set -x PATH $HOME/bin $PATH
 end
+
+# if we have autojump:
+. /usr/share/autojump/autojump.fish
