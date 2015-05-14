@@ -81,6 +81,7 @@ set ruler
 " Set the command window height to 2 lines, to avoid many cases of having to
 " press <Enter> to continue"
 set cmdheight=2
+set shortmess=a
 
 " Change background to red when writing a line with length > 80 chars
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
@@ -114,7 +115,7 @@ endif
 
 " Keys
 let mapleader=","
-" Use <F11> to toggle between 'paste' and 'nopaste'
+" Use <F10> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F10>
 " nerdtree
 nnoremap <F2> :NERDTreeToggle<CR>
