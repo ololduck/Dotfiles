@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+import i3pystatus
+
+status = i3pystatus.Status(standalone=True)
+# Basic info
+status.register("clock")
+status.register("load")
+status.register("cpu_usage_graph")
+status.register("mem_bar")
+status.register("disk", path="/home", format="/: {avail}Go disp.")
+status.register("disk", path="/mnt/win_disk", format="win: {avail}Go disp.")
+
+# Music info
+status.register("mpd",
+                format="{status} {title} by {artist} on {album}",
+                status={
+                    "pause": "▷",
+                    "play": "▶",
+                    "stop": "◾"})
+
+# FIRING DA LAZER !
+status.run()
