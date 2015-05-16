@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
+import socket
 import i3pystatus
 
 status = i3pystatus.Status(standalone=True)
@@ -8,8 +9,12 @@ status.register("clock")
 status.register("load")
 status.register("cpu_usage_graph")
 status.register("mem_bar")
-status.register("disk", path="/home", format="/: {avail}Go disp.")
-status.register("disk", path="/mnt/win_disk", format="win: {avail}Go disp.")
+status.register("disk", path="/", format="/: {avail}Go disp.")
+status.register("disk", path="/home", format="/home: {avail}Go disp.")
+if socket.gethostname() == 'pollivier':
+    status.register("disk",
+                    path="/mnt/win_disk",
+                    format="win: {avail}Go disp.")
 
 # Music info
 status.register("mpd",
