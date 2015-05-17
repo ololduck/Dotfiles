@@ -162,8 +162,8 @@ exec --no-startup-id nm-applet              	# wifi management
 #exec --no-startup-id dropboxd &        	     # dropbox (do we reaaaaally need this?)
 # exec --no-startup-id acpid                  	# acpi events (lid closed)
 #exec --no-startup-id pasystray &                # Sound systray icon
-exec --no-startup-id bin/double_screen.sh       # setup double screens, if any
+exec --no-startup-id bin/displays.sh            # setup the displays
 
 # Wallpapers
-exec --no-startup-id bin/rotate_wallpapers Images/Wallpapers --loop 600
+exec --no-startup-id bin/rotate_wallpapers.sh Images/Wallpapers --loop 600
 # vim:ft=i3
