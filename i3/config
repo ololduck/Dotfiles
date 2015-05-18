@@ -8,8 +8,8 @@ set $w4 4:term2
 set $w5 5:mail
 set $w6 6:music
 set $w7 7:im
-set $gpi 20
-set $gpo 20
+set $gsi 20
+set $gso 10
 
 
 # === VISUAL ===
@@ -19,8 +19,8 @@ font xft:DejaVu Sans Mono 11px
 # necessary for i3-gaps
 # https://github.com/Airblader/i3
 for_window [class="^.*"] border pixel 0
-gaps inner $gpi
-gaps outer $gpo
+gaps inner $gsi
+gaps outer $gso
 smart_gaps on
 
 # class                     border  backgr. text
@@ -148,6 +148,7 @@ bindsym XF86AudioPrev exec ncmpcpp prev
 bindsym XF86AudioNext exec ncmpcpp next
 bindsym XF86AudioPlay exec ncmpcpp toggle
 
+# web
 assign [class="Firefox"] $w3
 assign [class="dwb"] $w3
 # mails
@@ -159,9 +160,6 @@ assign [class="Spotify"] $w6
 exec --no-startup-id xcompmgr
 exec --no-startup-id dunst                      # Notification daemon
 exec --no-startup-id nm-applet              	# wifi management
-#exec --no-startup-id dropboxd &        	     # dropbox (do we reaaaaally need this?)
-# exec --no-startup-id acpid                  	# acpi events (lid closed)
-#exec --no-startup-id pasystray &                # Sound systray icon
 exec --no-startup-id bin/displays.sh            # setup the displays
 
 # Wallpapers

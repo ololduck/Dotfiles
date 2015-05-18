@@ -10,11 +10,12 @@ status.register("load")
 status.register("cpu_usage_graph")
 status.register("mem_bar")
 status.register("disk", path="/", format="/: {avail}Go disp.")
-status.register("disk", path="/home", format="/home: {avail}Go disp.")
 if socket.gethostname() == 'pollivier':
     status.register("disk",
                     path="/mnt/win_disk",
                     format="win: {avail}Go disp.")
+else:
+    status.register("disk", path="/home", format="/home: {avail}Go disp.")
 
 # Music info
 status.register("mpd",
