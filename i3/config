@@ -12,6 +12,21 @@ set $gsi 20
 set $gso 10
 
 
+# colors:
+set $focused_border  #ffffff
+set $focused_bg      #555555
+set $focused_txt     #ffffff
+set $active_border   #dddddd
+set $active_bg       #333333
+set $active_text     #dddddd
+set $inactive_border #333333
+set $inactive_bg     #333333
+set $inactive_text   #aaaaaa
+set $urgent_border   #ee0000
+set $urgent_bg       #333333
+set $urgent_text     #ee0000
+
+
 # === VISUAL ===
 # First of all: font
 font xft:DejaVu Sans Mono 11px
@@ -23,11 +38,11 @@ gaps inner $gsi
 gaps outer $gso
 smart_gaps on
 
-# class                     border  backgr. text
-client.focused              #8888aa #8888aa #ffffff
-client.unfocused            #444444 #444444 #315858
-client.focused_inactive     #444444 #444444 #2c2c2f
-client.urgent               #383a3b #383a3b #ee0000
+# class                     border           backgr.      text
+client.focused              $focused_border  $focused_bg  $focused_txt
+client.unfocused            $inactive_border $inactive_bg $inactive_text
+client.focused_inactive     $active_border   $active_bg   $active_text
+client.urgent               $urgent_border   $urgent_bg   $urgent_text
 
 # === KEYBINDINGS ===
 
@@ -44,7 +59,7 @@ bindsym $mod+Shift+E exit
 bindsym $mod+l exec i3lock -d
 
 # = program shortcuts
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show run -o 80
 bindsym $mod+Return exec xfce4-terminal
 # Take screenshot
 bindsym Print exec take-screen 
@@ -138,6 +153,16 @@ bar {
         status_command python3 .i3/i3pystatus
         mode hide
         modifier $mod
+        colors {
+            background $inactive_bg
+            statusline $active_text
+
+            # class            border           bg           text
+            focused_workspace  $focused_border  $focused_bg  $focused_txt
+            active_workspace   $active_border   $active_bg   $active_text
+            inactive_workspace $inactive_border $inactive_bg $inactive_text
+            urgent_workspace   $urgent_border   $urgent_bg   $urgent_text
+        }
 }
 
 # sound
