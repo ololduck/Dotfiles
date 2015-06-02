@@ -7,3 +7,7 @@ Theme is [Arc-Theme](https://github.com/horst3180/Arc-theme), set via
 `lxappearance`.
 It also uses [rofi](https://davedavenport.github.io/rofi/), with
 [i3-color-rofi](https://github.com/okraits/i3-color-rofi/blob/master/i3-color-rofi).
+
+## Installation
+
+    wget -O - https://github.com/paulollivier/Dotfiles/raw/install.sh | sh
