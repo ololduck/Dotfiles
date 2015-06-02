@@ -6,6 +6,8 @@ import i3pystatus
 status = i3pystatus.Status(standalone=True)
 # Basic info
 status.register("clock")
+if socket.gethostname() == 'charon':
+    status.register("battery")
 status.register("load")
 status.register("cpu_usage_graph")
 status.register("mem_bar")

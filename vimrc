@@ -16,10 +16,10 @@ Plugin 'gmarik/Vundle.vim'
 
 " And now, the plugins.
 Plugin 'bling/vim-airline'
-Plugin 'bling/vim-bufferline'
+"Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/syntastic'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'gabrielelana/vim-markdown'
@@ -28,8 +28,8 @@ Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'msanders/snipmate.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'godlygeek/tabular'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'godlygeek/tabular'
 Plugin 'dag/vim-fish'
 Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
@@ -90,8 +90,8 @@ set cmdheight=2
 set shortmess=a
 
 " Change background to red when writing a line with length > 80 chars
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+"highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
+"match OverLength /\%81v.\+/
 
 " vim-airline
 set laststatus=2                             " To understand this, :h laststatus
@@ -103,7 +103,7 @@ let g:airline_powerline_fonts = 1            " Uncomment if you don't have a pow
 "autocmd VimEnter * let &statusline='%{bufferline#refresh_status()}' .bufferline#get_status_string()
 
 " Configure the used VCS
-let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
+let g:signify_vcs_list = [ 'git' ]
 
 " Theme
 "colorscheme solarized
@@ -121,6 +121,7 @@ endif
 
 " Keys
 let mapleader=","
+nnoremap <Leader>w :w<CR>
 " Use <F10> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F10>
 " nerdtree
