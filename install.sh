@@ -1,4 +1,5 @@
 #!/bin/sh
+export PATH=$HOME/.local/bin:$PATH
 PREFIX=$HOME/.local
 SRC_SOFTS=$PREFIX/src
 
@@ -8,7 +9,6 @@ install_dotfiles() {
         return 1
     fi
     pip install --user dotfiles
-    export PATH=$HOME/.local/bin:$PATH
     git clone https://github.com/paulollivier/Dotfiles.git ~/dotfiles
     dotfiles -s
 }
@@ -31,6 +31,11 @@ install_dmenu2() {
     PREFIX=$PREFIX make install
 }
 
+install_i3pystatus() {
+    pip3 install --user i3pystatus colour psutil
+}
+
 install_dotfiles
 install_vundle
 install_dmenu2
+install_i3pystatus

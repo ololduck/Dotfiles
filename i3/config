@@ -59,7 +59,7 @@ bindsym $mod+Shift+E exit
 bindsym $mod+l exec i3lock -d
 
 # = program shortcuts
-bindsym $mod+d exec rofi -show run -o 80
+bindsym $mod+d exec dmenu_run -w 500 -l 10 -centerx -dim 0.6 -p run -y 500
 bindsym $mod+Return exec xfce4-terminal
 # Take screenshot
 bindsym Print exec take-screen 
@@ -175,6 +175,7 @@ bindsym XF86AudioPlay exec ncmpcpp toggle
 
 # web
 assign [class="Firefox"] $w3
+assign [class="Iceweasel"] $w3
 assign [class="dwb"] $w3
 # mails
 assign [class="Thunderbird"] $w5
@@ -182,11 +183,11 @@ assign [class="Thunderbird"] $w5
 assign [class="Spotify"] $w6
 
 # Startup Programs
-exec --no-startup-id xcompmgr
+exec --no-startup-id compton
 exec --no-startup-id dunst                      # Notification daemon
 exec --no-startup-id nm-applet              	# wifi management
-exec --no-startup-id bin/displays.sh            # setup the displays
+exec --no-startup-id setup-displays.sh          # setup the displays
 
 # Wallpapers
-exec --no-startup-id bin/rotate_wallpapers.sh Images/Wallpapers --loop 600
+exec --no-startup-id rotate-wallpapers.sh $HOME/Images/Wallpapers --loop 600
 # vim:ft=i3
