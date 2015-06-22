@@ -8,8 +8,8 @@ set $w4 4:term2
 set $w5 5:mail
 set $w6 6:music
 set $w7 7:im
-set $gsi 20
-set $gso 10
+set $gsi 10
+set $gso 5
 
 
 # colors:

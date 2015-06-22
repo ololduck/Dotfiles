@@ -8,3 +8,5 @@ Session.vim
 .netrwhist
 *~
 
+# local prefs for shells
+local_config.*sh

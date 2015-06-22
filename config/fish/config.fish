@@ -6,7 +6,9 @@ if [ -d $HOME/.local/bin ]
 end
 
 # if we have autojump:
-. /usr/share/autojump/autojump.fish
+if test -f $HOME/.autojump/share/autojump/autojump.fish
+    . $HOME/.autojump/share/autojump/autojump.fish
+end
 
 if [ -f "$HOME/.config/fish/local_config.fish" ]
     . $HOME/.config/fish/local_config.fish

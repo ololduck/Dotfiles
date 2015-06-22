@@ -1,9 +1,0 @@
-[dotfiles]
-ignore = [
-    '.git',
-    '.gitignore',
-    'README.md',
-    'LICENSE']
-packages = ['config'] # Simlink everything in <repo>/config/* to ~.config/
-
-# vim:ft=ini:
