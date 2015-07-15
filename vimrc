@@ -15,21 +15,26 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " And now, the plugins.
-Plugin 'bling/vim-airline'
-"Plugin 'bling/vim-bufferline'
+" Panes/UI
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-"Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
+Plugin 'mhinz/vim-signify'
+Plugin 'itchyny/lightline.vim'
+Plugin 'nanotech/jellybeans.vim'
+" Functionalities
+Plugin 'rking/ag.vim' " search via Ag
+Plugin 'ervandew/supertab' "tab as ctrl+p
+Plugin 'jmcantrell/vim-virtualenv' " use venvs if avail.
+Plugin 'msanders/snipmate.vim' "configure some snippets
+Plugin 'kien/ctrlp.vim'
+" Indicators
 Plugin 'scrooloose/syntastic'
 Plugin 'myusuf3/numbers.vim'
-Plugin 'gabrielelana/vim-markdown'
-Plugin 'mhinz/vim-signify'
-Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
-Plugin 'msanders/snipmate.vim'
-"Plugin 'kien/ctrlp.vim'
-"Plugin 'godlygeek/tabular'
+" Syntaxes/Languages
+Plugin 'gabrielelana/vim-markdown'
 Plugin 'dag/vim-fish'
 Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
@@ -74,7 +79,6 @@ set smartcase   " Do smart case matching
 set incsearch   " Incremental search
 set autowrite   " Automatically save before commands like :next and :make
 set hidden      " Hide buffers when they are abandoned
-"set mouse=a    " Enable mouse usage (all modes)
 set tabstop=4   " 1 tab = 4 spaces
 set shiftwidth=4 " Same here
 set expandtab   " Automagically expand tabs to space
@@ -84,31 +88,68 @@ set wildmenu    " Better command-line completion
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
 set ruler
-" Set the command window height to 2 lines, to avoid many cases of having to
-" press <Enter> to continue"
-set cmdheight=2
 set shortmess=a
 
-" Change background to red when writing a line with length > 80 chars
-"highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
-"match OverLength /\%81v.\+/
+"display tabs and trailing spaces
+set list
+set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
-" vim-airline
-set laststatus=2                             " To understand this, :h laststatus
-let g:airline#extensions#tabline#enabled = 1 " Enable the upper tabline
-let g:airline_powerline_fonts = 1            " Uncomment if you don't have a powerline font
+set laststatus=2 " To understand this, :h laststatus
+set foldmethod=syntax
 
-" integrate bufferline to airline
-"let g:bufferline_echo = 0
-"autocmd VimEnter * let &statusline='%{bufferline#refresh_status()}' .bufferline#get_status_string()
+"lightline
+let g:lightline = {
+    \ 'colorscheme': 'jellybeans',
+    \ 'active': {
+    \     'left': [['mode', 'paste'],
+    \              ['fugitive', 'readonly', 'filename', 'modified'] ]
+    \ },
+    \ 'component_function': {
+    \     'fugitive': 'FugitiveStatus',
+    \     'readonly': 'ReadonlyStatus',
+    \     'modified': 'ModifiedStatus'
+    \ },
+    \ 'component_expand': {
+    \   'syntastic': 'SyntasticStatuslineFlag',
+    \ }
+\ }
+
+function! ModifiedStatus()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! ReadonlyStatus()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! FugitiveStatus()
+  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? ' '._ : ''
+  endif
+  return ''
+endfunction
 
 " Configure the used VCS
 let g:signify_vcs_list = [ 'git' ]
 
 " Theme
-"colorscheme solarized
-colorscheme desert           " works great with dark pastel term colors
-let g:airline_theme='base16' " works great with desert with pastel term colors
+colorscheme jellybeans
+"let g:airline_theme='base16' " works great with desert with pastel term colors
 
 " Syntastic config
 let g:syntastic_python_checkers=['flake8', 'pylama']
@@ -128,12 +169,9 @@ set pastetoggle=<F10>
 nnoremap <F2> :NERDTreeToggle<CR>
 " numbers
 nnoremap <F3> :NumbersToggle<CR>
-" Undo Tree
-nnoremap <F4> :UndotreeToggle<CR>
-" fugitive status (add/rm)
-nnoremap <F5> :Gstatus<CR>
 " Tags support
-nnoremap <F8> :TagbarToggle<CR>
+nnoremap <F4> :TagbarToggle<CR>
+nnoremap <F5> :Gstatus<CR>
 " more convenient buffer switching
 nnoremap bn :bnext<CR>
 nnoremap bp :bprevious<CR>
