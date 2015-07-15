@@ -28,6 +28,7 @@ Plugin 'rking/ag.vim' " search via Ag
 Plugin 'ervandew/supertab' "tab as ctrl+p
 Plugin 'jmcantrell/vim-virtualenv' " use venvs if avail.
 Plugin 'msanders/snipmate.vim' "configure some snippets
+Plugin 'kien/ctrlp.vim'
 " Indicators
 Plugin 'scrooloose/syntastic'
 Plugin 'myusuf3/numbers.vim'
