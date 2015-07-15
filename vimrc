@@ -22,6 +22,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
 Plugin 'itchyny/lightline.vim'
+Plugin 'nanotech/jellybeans.vim'
 " Functionalities
 Plugin 'rking/ag.vim' " search via Ag
 Plugin 'ervandew/supertab' "tab as ctrl+p
@@ -146,7 +147,7 @@ endfunction
 let g:signify_vcs_list = [ 'git' ]
 
 " Theme
-colorscheme ron
+colorscheme jellybeans
 "let g:airline_theme='base16' " works great with desert with pastel term colors
 
 " Syntastic config
