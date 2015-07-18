@@ -23,6 +23,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
 Plugin 'itchyny/lightline.vim'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'sjl/gundo.vim'
 " Functionalities
 Plugin 'rking/ag.vim' " search via Ag
 Plugin 'ervandew/supertab' "tab as ctrl+p
@@ -73,6 +74,7 @@ endif
 " differently from regular Vi. They are highly recommended though.
 set showcmd     " Show (partial) command in status line.
 set showmatch   " Show matching brackets.
+set cursorline  " highlight the line the cursor is in.
 set number      " Show line numbers
 set ignorecase  " Do case insensitive matching
 set smartcase   " Do smart case matching
@@ -85,6 +87,7 @@ set expandtab   " Automagically expand tabs to space
 set smartindent " Enable smart indentation
 set autoindent  " Enable automatic indentation
 set wildmenu    " Better command-line completion
+set noswapfile  " I use git, sorry
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
 set ruler
@@ -163,6 +166,7 @@ endif
 " Keys
 let mapleader=","
 nnoremap <Leader>w :w<CR>
+imap jj <ESC>
 " Use <F10> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F10>
 " nerdtree
@@ -172,6 +176,8 @@ nnoremap <F3> :NumbersToggle<CR>
 " Tags support
 nnoremap <F4> :TagbarToggle<CR>
 nnoremap <F5> :Gstatus<CR>
+nnoremap <F6> :GundoToggle<CR>
+
 " more convenient buffer switching
 nnoremap bn :bnext<CR>
 nnoremap bp :bprevious<CR>
