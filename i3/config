@@ -183,10 +183,13 @@ assign [class="Thunderbird"] $w5
 assign [class="Spotify"] $w6
 
 # Startup Programs
-exec --no-startup-id compton
-exec --no-startup-id dunst                      # Notification daemon
-exec --no-startup-id nm-applet              	# wifi management
-exec --no-startup-id setup-displays.sh          # setup the displays
+exec --no-startup-id compton            # useless real transparency
+exec --no-startup-id dunst              # Notification daemon
+exec --no-startup-id nm-applet          # wifi management
+exec --no-startup-id setup-displays.sh  # setup the displays
+
+# Music :3
+exec --no-startup-id mpd
 
 # Wallpapers
 exec --no-startup-id rotate-wallpapers.sh $HOME/Images/Wallpapers --loop 600
