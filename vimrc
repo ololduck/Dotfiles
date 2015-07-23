@@ -30,6 +30,7 @@ Plugin 'ervandew/supertab' "tab as ctrl+p
 Plugin 'jmcantrell/vim-virtualenv' " use venvs if avail.
 Plugin 'msanders/snipmate.vim' "configure some snippets
 Plugin 'kien/ctrlp.vim'
+Plugin 'godlygeek/tabular'
 " Indicators
 Plugin 'scrooloose/syntastic'
 Plugin 'myusuf3/numbers.vim'
@@ -68,6 +69,12 @@ endif
 " according to the detected filetype.
 if has("autocmd")
     filetype plugin indent on
+endif
+
+" Add support for persistent undo
+if has("persistent_undo")
+    set undodir = "~/.undodir/"
+    set undofile
 endif
 
 " The following are commented out as they cause vim to behave a lot
@@ -156,12 +163,6 @@ colorscheme jellybeans
 
 " Syntastic config
 let g:syntastic_python_checkers=['flake8', 'pylama']
-
-" Add support for persistent undo
-if has("persistent_undo")
-    set undodir = "~/.undodir/"
-    set undofile
-endif
 
 " Keys
 let mapleader=","
