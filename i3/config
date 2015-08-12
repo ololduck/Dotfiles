@@ -151,8 +151,11 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command python3 .i3/i3pystatus
-        mode hide
-        modifier $mod
+        #mode hide
+        #modifier $mod
+        position top
+        font xft:Input Sans 7
+
         colors {
             background $inactive_bg
             statusline $active_text

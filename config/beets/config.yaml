@@ -19,7 +19,11 @@ original_date: no
 clutter: [Thumbs.DB, .DS_Store]
 pluginpath: []
 
-plugins: []
+plugins: [fetchart, embedart, duplicates, mpdupdate, fromfilename]
+
+fetchart:
+    cautious: true
+    minwidht: 300
 
 musicbrainz:
     host: musicbrainz.org
@@ -29,9 +33,9 @@ musicbrainz:
 sort_item: artist+ album+ disc+ track+
 
 paths:
-    default: $albumartist/$album%aunique{}/$track $title
+    default: $albumartist/$album%aunique{}/$track - $title
     singleton: Non-Album/$artist/$title
-    comp: Compilations/$album%aunique{}/$track $title
+    comp: Compilations/$album%aunique{}/$track - $title
 
 format_item: $artist - $album - $title
 threaded: yes

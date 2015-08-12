@@ -2,30 +2,44 @@
 # -*- coding:utf-8 -*-
 import socket
 import i3pystatus
+from i3pystatus.updates import aptget
 
 status = i3pystatus.Status(standalone=True)
 # Basic info
 status.register("clock")
 if socket.gethostname() == 'charon':
     status.register("battery")
+status.register("updates", backends=aptget.AptGet())
 status.register("load")
+status.register("uptime")
+status.register("temp")
 status.register("cpu_usage_graph")
 status.register("mem_bar")
-status.register("disk", path="/", format="/: {avail}Go disp.")
-if socket.gethostname() == 'pollivier':
+status.register("disk",
+        path           = "/",
+        format         = "/: {avail}Go",
+        display_limit  = 15,
+        critical_limit = 5)
+if socket.gethostname() == 'pollivier-deb':
     status.register("disk",
-                    path="/mnt/win_disk",
-                    format="win: {avail}Go disp.")
-else:
-    status.register("disk", path="/home", format="/home: {avail}Go disp.")
+            path           = "/home",
+            format         = "/home: {avail}Go",
+            display_limit  = 40,
+            critical_limit = 10)
+    status.register("disk",
+            path           = "/mnt/space",
+            format         = "space: {avail}Go",
+            display_limit  = 100,
+            critical_limit = 50)
+
 
 # Music info
 status.register("mpd",
                 format="{status} {title} by {artist} on {album}",
                 status={
-                    "pause": "▷",
-                    "play": "▶",
-                    "stop": "◾"})
+                    "pause" : "▷",
+                    "play"  : "▶",
+                    "stop"  : "◾"})
 
 # FIRING DA LAZER !
 status.run()
