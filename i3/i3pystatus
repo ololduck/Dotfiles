@@ -34,6 +34,7 @@ if socket.gethostname() == 'pollivier-deb':
 
 
 # Music info
+status.register("pulseaudio")
 status.register("mpd",
                 format="{status} {title} by {artist} on {album}",
                 status={
