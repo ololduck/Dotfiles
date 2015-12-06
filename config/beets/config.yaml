@@ -19,11 +19,18 @@ original_date: no
 clutter: [Thumbs.DB, .DS_Store]
 pluginpath: []
 
-plugins: [fetchart, embedart, duplicates, mpdupdate, fromfilename]
+plugins: [fetchart, embedart, duplicates, mpdupdate, fromfilename, convert]
 
 fetchart:
     cautious: true
     minwidht: 300
+
+convert:
+    auto: yes
+    copy_album_art: yes
+    max_bitrate: 320
+    command: ffmpeg -i $source -y -vn -ab 320k -aq 2 $dest
+    extension: mp3
 
 musicbrainz:
     host: musicbrainz.org

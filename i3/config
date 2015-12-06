@@ -1,14 +1,14 @@
 set $mod Mod4
 
 # Workspaces names
-set $w1 1
-set $w2 2
-set $w3 
-set $w4 
+set $w1 term1
+set $w2 term2
+set $w3 web
+set $w4 doc
 set $w5 ✉
 set $w6 ♪
-set $w7 
-set $w8 
+set $w7 chat
+set $w8 media
 set $w9 ♨
 set $w10 10
 
@@ -197,6 +197,12 @@ exec --no-startup-id compton            # useless real transparency
 exec --no-startup-id dunst              # Notification daemon
 exec --no-startup-id nm-applet          # wifi management
 exec --no-startup-id setup-displays.sh  # setup the displays
+
+# Don't burn my rigth,
+# Don't burn my left,
+# Don't burn my third
+# eye
+exec --no-startup-id redshift -l 4.8534100:2.3488000
 
 # Music :3
 exec --no-startup-id mpd
