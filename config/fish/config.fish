@@ -1,5 +1,6 @@
 set -x EDITOR vim
 set -x TERM xterm-256color
+set usual_user paul
 
 if [ -d /usr/local/heroku/ ]
     set -x PATH /usr/local/heroku/bin $PATH

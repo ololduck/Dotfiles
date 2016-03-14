@@ -200,6 +200,12 @@ exec --no-startup-id setup-displays.sh  # setup the displays
 # don't loose youre eyes at night
 exec --no-startup-id redshift -l 48.856578:2.351828
 
+# Don't burn my rigth,
+# Don't burn my left,
+# Don't burn my third
+# eye
+exec --no-startup-id redshift -l 4.8534100:2.3488000
+
 # Music :3
 exec --no-startup-id mpd
 

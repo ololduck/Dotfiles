@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
+import re
 import socket
 import i3pystatus
 from i3pystatus.updates import aptget
@@ -12,7 +13,7 @@ if socket.gethostname() in ('charon','plegethon'):
 status.register("updates", backends=aptget.AptGet())
 status.register("load")
 status.register("uptime")
-status.register("temp")
+if socket.gethostname() != 'orphee': status.register("temp")
 status.register("cpu_usage_graph")
 status.register("mem_bar")
 status.register("disk",
@@ -35,12 +36,18 @@ if socket.gethostname() == 'pollivier-deb':
 
 # Music info
 status.register("pulseaudio")
+if re.match('[a-z]+\.home', socket.getfqdn()):
+    mpd_args = {'host': 'mpd.home'}
+else:
+    mpd_args = {'host': 'localhost'}
+
 status.register("mpd",
                 format="{status} {title} by {artist} on {album}",
                 status={
                     "pause" : "▷",
                     "play"  : "▶",
-                    "stop"  : "◾"})
+                    "stop"  : "◾"},
+                **mpd_args)
 
 # FIRING DA LAZER !
 status.run()
