@@ -23,3 +23,7 @@ end
 
 # virtualfish: a fish virtualenvwrapper replacement
 eval (python -m virtualfish auto_activation compat_aliases global_requirements projects)
+set -x PATH "/home/paul/.pyenv/bin" $PATH
+status --is-interactive; and . (pyenv init -|psub)
+status --is-interactive; and . (pyenv virtualenv-init -|psub)
+rvm default

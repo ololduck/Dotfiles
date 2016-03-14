@@ -265,7 +265,7 @@ song_columns_list_format = "(25)[green]{a} (45)[cyan]{t} (6f)[white]{l} (25)[red
 ## Attention: It doesn't support song format anymore.
 ## Use `ncmpcpp --now-playing SONG_FORMAT` instead.
 ##
-execute_on_song_change = "now-playing.sh" //TODO
+#execute_on_song_change = "now-playing.sh" //TODO
 #
 playlist_show_remaining_time = "yes"
 #

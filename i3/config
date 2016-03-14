@@ -1,14 +1,14 @@
 set $mod Mod4
 
 # Workspaces names
-set $w1 1
-set $w2 2
-set $w3 
-set $w4 
+set $w1 term1
+set $w2 term2
+set $w3 web
+set $w4 docs
 set $w5 ✉
 set $w6 ♪
-set $w7 
-set $w8 
+set $w7 chat
+set $w8 media
 set $w9 ♨
 set $w10 10
 
@@ -158,8 +158,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command python3 .i3/i3pystatus
-        #mode hide
-        #modifier $mod
+        mode hide
+        modifier $mod
         position top
         font xft:Input Sans 7
 
@@ -197,6 +197,8 @@ exec --no-startup-id compton            # useless real transparency
 exec --no-startup-id dunst              # Notification daemon
 exec --no-startup-id nm-applet          # wifi management
 exec --no-startup-id setup-displays.sh  # setup the displays
+# don't loose youre eyes at night
+exec --no-startup-id redshift -l 48.856578:2.351828
 
 # Music :3
 exec --no-startup-id mpd

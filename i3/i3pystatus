@@ -7,7 +7,7 @@ from i3pystatus.updates import aptget
 status = i3pystatus.Status(standalone=True)
 # Basic info
 status.register("clock")
-if socket.gethostname() == 'charon':
+if socket.gethostname() in ('charon','plegethon'):
     status.register("battery")
 status.register("updates", backends=aptget.AptGet())
 status.register("load")

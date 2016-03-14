@@ -24,6 +24,7 @@ Plugin 'mhinz/vim-signify'
 Plugin 'itchyny/lightline.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'sjl/gundo.vim'
+Plugin 'junegunn/goyo.vim'
 " Functionalities
 Plugin 'rking/ag.vim' " search via Ag
 Plugin 'ervandew/supertab' "tab as ctrl+p
@@ -39,6 +40,10 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'dag/vim-fish'
 Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'tfnico/vim-gradle'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 
 " All of your Plugins must be added before the following line
@@ -73,7 +78,7 @@ endif
 
 " Add support for persistent undo
 if has("persistent_undo")
-    set undodir = "~/.undodir/"
+    set undodir="~/.undodir/"
     set undofile
 endif
 

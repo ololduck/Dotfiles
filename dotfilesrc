@@ -4,6 +4,7 @@ ignore = [
     '.git',
     '.gitignore',
     'README.md',
+    'Vagrantfile',
     'LICENSE']
 packages = [
     'config/xfce4',
